@@ -31,7 +31,7 @@ List of root project directories and files:
 
 ## INSTALLATION:
 
-1. git clone 
+1. git clone https://github.com/fd-mailden/Kanban.git
 2. cd Kanban
 3. npm install
 4. npm run start
