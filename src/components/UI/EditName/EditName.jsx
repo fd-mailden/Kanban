@@ -11,11 +11,11 @@ function EditName(props) {
                       type="text" 
                       placeholder="Edit"/>
         <div className ="two_btn_edit">
-            <MyButton onClick = {()=>{props.changeTitleCard(props.card_id, props.newTitle);props.setShowing(1)}}>edit</MyButton>
+            <MyButton onClick = {()=>{props.changeTitleCard(props.card_id, props.newTitle);props.setShowing(true)}}>edit</MyButton>
             <img className = "img_svg_card"
                 src={cross}
                 alt="cross"
-                onClick = {()=>props.setShowing(1)}/>
+                onClick = {()=>props.setShowing(true)}/>
         </div>
       
             

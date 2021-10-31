@@ -7,7 +7,7 @@ import edit from '../assets/img/edit-solid.svg';
 
 function BoardTitle(props) {
 
-    const [showing, setShowing] = useState(1)
+    const [showing, setShowing] = useState(true)
 
     return (
         <div  style = {{background: '#DFE3E6'}}>
@@ -18,7 +18,7 @@ function BoardTitle(props) {
               className = "img_svg"
               src={edit}
               alt="edit"
-              onClick = {()=>{ setShowing(0)}}
+              onClick = {()=>{ setShowing(false)}}
             />
             <img 
               className = "img_svg"
@@ -29,7 +29,7 @@ function BoardTitle(props) {
           </div>
         </div>
 
-        {showing == 0 
+        {showing == false 
           ?<EditName setShowing= {setShowing}
             changeTitleCard= {props.changeBoardTitle}
             newTitle= {props.newTitle}
