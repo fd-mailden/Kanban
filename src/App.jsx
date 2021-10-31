@@ -11,13 +11,10 @@ import BoardTitle from './components/BoardTitle';
 
 function App() {
   const amountOfColumns = useSelector(state => state.boards.amountOfColumns);
-
   const [newTitle, setNewTitle] = useState('');
-
   const dispatch = useDispatch();
   const boards = useSelector(state => state.boards.boards);
   const cards = useSelector(state => state.cards.cards);
- 
   //----redux function------------
   const removeCard = (card) =>{
     dispatch(removeCardAction(card.id));
@@ -35,13 +32,11 @@ function App() {
   }
 
   const removeBoard = (board) =>{
-   
     dispatch(removeBoardAction(board.id));
     const columnId  = {
       "column_id": board.id
     }
     dispatch(removeCardWhithBoarderIDAction(columnId));
-
   }
 
   const changeBoardTitle = (board_id, title) =>{
@@ -53,8 +48,6 @@ function App() {
     dispatch(editBoardAction(date)); 
     setNewTitle('');
     }
-     
-
   }
 
   //---------- drag and drop -------
@@ -86,7 +79,6 @@ function App() {
       "card_id": currentItem,
       "column_id": idBoard,
     }
-
     dispatch(ChangeColumnIdForCard(date));
     e.target.style.boxShadow = 'none';
     setCurrentItem(null);
@@ -95,17 +87,14 @@ function App() {
   /// ----- dropHandler for empti column -------
   function dropCardHandler(e, idBoard){
     e.preventDefault();
-    console.log(currentItem+ " --"+ idBoard);
     const date = {
       "card_id": currentItem,
       "column_id": idBoard, 
     }
-
     dispatch(ChangeColumnIdForCard(date));
     e.target.style.boxShadow = 'none';
     setCurrentItem(null);
 }
-
 
   return (
     <div className="app" >
@@ -113,8 +102,12 @@ function App() {
         <div className ="board" onDragOver = {(e)=>dragOverHandler(e)}
           onDrop = {(e)=>dropCardHandler(e,  board.id)}>
 
-          <BoardTitle board_title ={board.title} changeBoardTitle ={changeBoardTitle}board={board} removeBoard={removeBoard}
-          setNewTitle= {setNewTitle}  newTitle ={newTitle}  card_id= {board.id}/>
+          <BoardTitle board_title ={board.title} 
+          changeBoardTitle ={changeBoardTitle}
+          board={board} 
+          removeBoard={removeBoard}
+          setNewTitle= {setNewTitle}  
+          newTitle ={newTitle}  card_id= {board.id}/>
 
           <div className = "cards">
             {cards.map(card=>
@@ -130,9 +123,11 @@ function App() {
                   draggable = {true}
                   className = "card">
                   
-                  <Cards card_title ={card.title} removeCard= {removeCard} card_id = {card.id} card={card}
-                    setNewTitle ={setNewTitle} newTitle  = {newTitle}  changeTitleCard={changeTitleCard} />
-
+                  <Cards card_title ={card.title} removeCard= {removeCard} 
+                    card_id = {card.id} card={card}
+                    setNewTitle ={setNewTitle} 
+                    newTitle  = {newTitle}  
+                    changeTitleCard={changeTitleCard} />
                 </div>
                   : <div style = {{ display: 'none',visibility: 'hidden'}}></div>
               }
@@ -142,8 +137,7 @@ function App() {
                  <CreateCards  boarderId = {board.id}/>
         </div>
       )}
-    {amountOfColumns < 4?  <ShowCreateBoard /> : null}  
-    
+    {amountOfColumns < 4?  <ShowCreateBoard /> : null}    
   </div>
   );
 }

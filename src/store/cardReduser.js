@@ -2,13 +2,11 @@ const defaultState ={
    cards: [],
   }
 
-
   const ADD_CARD ="ADD_CARD";
   const REMOVE_CARD ="REMOVE_CARD";
   const CHANGE_COLUMN_ID_FOR_CARD ="CHANGE_COLUMN_ID_FOR_CARD";
   const EDIN_CARD ="EDIN_CARD"
   const REMVE_CADR_WHITH_BOARD_ID ="REMVE_CADR_WHITH_BOARD_ID"
-
 
 export const cardReduser = (state = defaultState, action) =>{
     switch(action.type){
@@ -55,25 +53,22 @@ export const addCardAction =(payload)=>({
 
 export const removeCardAction =(payload)=>({
   type:REMOVE_CARD, 
-  payload} );
+  payload});
 
 export const ChangeColumnIdForCard =(payload)=>({
   type:CHANGE_COLUMN_ID_FOR_CARD, 
   payload
-
-} );
+});
 
 export const editCardAction =(payload)=>({
   type:EDIN_CARD, 
   payload
-
-} );
+});
 
 export const removeCardWhithBoarderIDAction =(payload)=>({
   type:REMVE_CADR_WHITH_BOARD_ID, 
   payload
-
-} );
+});
 
 
 

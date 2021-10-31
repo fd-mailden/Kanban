@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { useState} from 'react';
 import MyInput from './UI/MyInput/MyInput';
@@ -10,17 +9,14 @@ import cross from '../assets/img/times-solid.svg';
 function CreateBoarders(props) {
 
   const [nameBoard, setNameBoard] = useState('');
-
   const dispatch = useDispatch();
   const boards = useSelector(state => state.boards.boards);
   
-
   const addBoard = (title) =>{
     const board = {
       "id": Date.now(),
       "title": title, 
     }
-
     dispatch(addBoardAction(board))
     setNameBoard('');
 }
@@ -34,11 +30,11 @@ function CreateBoarders(props) {
             placeholder="Введите название колонки"/>
             
         <div className = "two_btn">
-          <MyButton onClick = {()=>{addBoard(nameBoard); props.setShowing(1)}}>Добавить колонку</MyButton>
+          <MyButton onClick = {()=>{addBoard(nameBoard); props.setShowing(true)}}>Добавить колонку</MyButton>
           <img className ="img_svg"
            src={cross}
            alt="cross"
-          onClick = {()=>props.setShowing(1)}/>
+          onClick = {()=>props.setShowing(true)}/>
         </div>  
     </div>  
         

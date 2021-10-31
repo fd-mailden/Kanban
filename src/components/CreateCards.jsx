@@ -1,4 +1,3 @@
-
 import React from 'react'
 import MyInput from './UI/MyInput/MyInput';
 import MyButton from './UI/MyButton/MyButton';
@@ -11,7 +10,7 @@ import cross from '../assets/img/times-solid.svg';
 function CreateCards(props) {
 
   const [nameCard, setNameCard] = useState('');
-  const [showing, setShowing] = useState(1)
+  const [showing, setShowing] = useState(true);
 
   const dispatch = useDispatch();
   const cards = useSelector(state => state.cards.cards);
@@ -22,32 +21,28 @@ function CreateCards(props) {
         "title": title, 
         "columnId": boardId,
       }
-    
       dispatch(addCardAction(card));
       setNameCard('');
   };
 
   return (
-      <div className = "add_board" >
-          
-           {showing == 0 
+      <div className = "add_board" > 
+           {showing == false 
            ? <div style = {{background: '#DFE3E6'}}>
              <MyInput value={nameCard} onChange = {e=>setNameCard(e.target.value)} 
                type="text" 
                placeholder="Введите название карточки"/>
               <div  className = "two_btn" >
-                <MyButton onClick = {()=>{addCard(nameCard,  props.boarderId); setShowing(1) }}>Добавить карточку</MyButton>
+                <MyButton onClick = {()=>{addCard(nameCard,  props.boarderId); setShowing(true) }}>Добавить карточку</MyButton>
                 <img className = "img_svg"
                   src={cross}
                   alt="cross"
-                  onClick = {()=>setShowing(1)}/>
+                  onClick = {()=>setShowing(true)}/>
                </div>            
             </div> 
-
              :null
         }
-          
-          <div className = "add_title" onClick = {()=>setShowing(0)}>
+          <div className = "add_title" onClick = {()=>setShowing(false)}>
             <img className = "img_svg"
               src={plus}
               alt="Добавить" />
