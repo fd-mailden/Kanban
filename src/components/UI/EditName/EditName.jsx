@@ -6,7 +6,7 @@ import cross from './times-solid.svg';
 
 function EditName(props) {
     return (
-        <div style = {{background: 'white'}}>
+        <div style = {{background: 'white' }}>
             <MyInput value={props.newTitle} onChange = {e=>props.setNewTitle(e.target.value)} 
                       type="text" 
                       placeholder="Edit"/>
