@@ -5,7 +5,7 @@ function MyTitle(props) {
     return (
         <div>
             <div className = {classes.title}>
-                {props.title}
+                <b className = {classes.title}> {props.title} </b>
             </div>
         </div>
         
